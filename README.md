@@ -19,4 +19,6 @@ Desculpem o código sem comentários, talvez até mal identado. Mas esse código
 
 OBS: Só fazer o download e rodar para testar (estou usando .htaccess portanto, apache! Ou, habilita o index.php nas URL`s no config.php)
 
+OBS2: Essa função nasceu no meu projeto de startup www.zuinn.com.br (que foi feito em cakePHP hahahahaha) mas ai migrei pra CodeIgniter para postar aqui pra vocês!
+
 Valeu!
