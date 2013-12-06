@@ -21,6 +21,44 @@ class Welcome extends CI_Controller {
 	{
 		$this->load->view('welcome_message');
 	}
+	
+	public function save()
+	{
+		
+		header("Content-type: application/json");
+		$data = '"time":"'.time().'"';
+		foreach ($_FILES as $key => $value) 
+		{
+
+			$file = $key;
+			$properties = $value;
+			if($properties['tmp_name']!=""){
+				$name = (time()*(rand(100,1000))) . '.' . pathinfo($properties['name'], PATHINFO_EXTENSION);
+				$config = "";
+				$config['upload_path'] = './uploads/';
+				$config['allowed_types'] = '*';
+				$config['file_name'] = $name;
+				$this->load->library('upload');
+				$this->upload->initialize($config);
+				$this->upload->do_upload($file);
+				$data .= ',"'.$file.'":"'.$name.'"';
+			}else{
+				$data .= ',"'.$file.'":""';
+			}
+			
+		}
+		
+		foreach($_POST as $key=>$value)
+		{
+			$field = explode('_',$key);
+			$data .= ',"'.$key.'":"'.$value.'"';
+		}
+		
+		$data = '{'.$data.'}';
+		echo $data;
+
+	}
+	
 }
 
 /* End of file welcome.php */

@@ -63,6 +63,11 @@
 		-webkit-box-shadow: 0 0 8px #D0D0D0;
 	}
 	</style>
+	
+	<script src="<?php echo base_url()?>files/js/jQuery.1.10.2-min.js" type="text/javascript"></script>
+	<script src="<?php echo base_url()?>files/js/main-min.js" type="text/javascript"></script>
+	<link rel="stylesheet" type="text/css" href="<?php echo base_url()?>files/css/main.css" />
+	
 </head>
 <body>
 
@@ -70,15 +75,15 @@
 	<h1>Welcome to CodeIgniter!</h1>
 
 	<div id="body">
-		<p>The page you are looking at is being generated dynamically by CodeIgniter.</p>
-
-		<p>If you would like to edit this page you'll find it located at:</p>
-		<code>application/views/welcome_message.php</code>
-
-		<p>The corresponding controller for this page is found at:</p>
-		<code>application/controllers/welcome.php</code>
-
-		<p>If you are exploring CodeIgniter for the very first time, you should start by reading the <a href="user_guide/">User Guide</a>.</p>
+		<?php echo form_open_multipart('welcome/save',array('class'=>'ajaxForm'));?>
+		Nome 1: <input type="text" name="nome1"><br><br>
+		Nome 2: <input type="text" name="nome2"><br><br>
+		Nome 3: <input type="text" name="nome3"><br><br>
+		Foto 1: <input type="file" name="foto1"><br><br>
+		Foto 2: <input type="file" name="foto2"><br><br>
+		Foto 3: <input type="file" name="foto3"><br><br>
+		<input type="submit" value="Enviar">
+		<?php echo form_close();?>
 	</div>
 
 	<p class="footer">Page rendered in <strong>{elapsed_time}</strong> seconds</p>
